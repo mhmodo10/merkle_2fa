@@ -1,8 +1,9 @@
-from hashlib import sha256
+from hashlib import sha256, sha3_256
+
 
 class MerkleTree:
     def __init__(self, leaves, hash_leaves = True):
-        self.leaves = [sha256(leaf.encode()).hexdigest() if hash_leaves else leaf for leaf in leaves]
+        self.leaves = [sha3_256(leaf.encode()).hexdigest() if hash_leaves else leaf for leaf in leaves]
         if len(self.leaves) % 2 != 0:
             self.leaves.append(self.leaves[-1])
         self.levels = [self.leaves]
@@ -16,7 +17,7 @@ class MerkleTree:
             self.levels.append(nextLevel)
 
     def hash(self, left, right):
-        return sha256(left.encode() + right.encode()).hexdigest()
+        return sha3_256(left.encode() + right.encode()).hexdigest()
 
     def getRoot(self):
         return self.levels[-1][0]

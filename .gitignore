@@ -2,3 +2,15 @@ venv
 google_auth_qr_code.png
 **__pycache__**
 merkle_leaves.json
+smart_contract/node_modules
+.env
+smart_contract/coverage
+smart_contract/coverage.json
+smart_contract/typechain
+smart_contract/typechain-types
+
+# Hardhat files
+smart_contract/cache
+smart_contract/artifacts
+
+.vscode
